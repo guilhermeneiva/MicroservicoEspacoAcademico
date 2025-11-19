@@ -14,7 +14,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/db_espacoFisico-ms
     username: postgres
-    password: '@Lagosta123'
+    password: postgres
     driver-class-name: org.postgresql.Driver
 
 
