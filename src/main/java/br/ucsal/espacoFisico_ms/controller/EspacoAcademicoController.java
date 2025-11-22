@@ -58,9 +58,4 @@ public class EspacoAcademicoController {
         return ResponseEntity.ok(espacoAcademicoService.findInativo());
     }
 
-    @PostMapping("/{idEspaco}/software/{idSoftware}")
-    public ResponseEntity<EspacoAcademico> addSoftware(@PathVariable Long idEspaco, @PathVariable Long idSoftware) {
-        EspacoAcademico espaco = espacoAcademicoService.addSoftwareId(idEspaco, idSoftware);
-        return ResponseEntity.ok(espaco);
-    }
 }
