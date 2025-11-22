@@ -58,4 +58,9 @@ public class EspacoAcademicoController {
         return ResponseEntity.ok(espacoAcademicoService.findInativo());
     }
 
+    @GetMapping("/exists/{id}")
+    public boolean existsIdEspaco(@PathVariable Long id) {
+        return espacoAcademicoService.existsIdEspaco(id);
+    }
+
 }
