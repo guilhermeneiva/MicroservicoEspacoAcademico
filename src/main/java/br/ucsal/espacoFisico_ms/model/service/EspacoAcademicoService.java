@@ -76,4 +76,8 @@ public class EspacoAcademicoService {
         return espacosInativos;
     }
 
+    public boolean existsIdEspaco(Long id) {
+        return espacoAcademicoRepository.existsById(id);
+    }
+
 }
