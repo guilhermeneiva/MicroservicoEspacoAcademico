@@ -17,17 +17,16 @@ public class EspacoAcademicoService {
 
     private EspacoAcademicoRepository espacoAcademicoRepository;
     private EspacoAcademicoValidation espacoAcademicoValidation;
-    private WebClient softwareWebClient;
 
     public EspacoAcademicoService(EspacoAcademicoRepository espacoAcademicoRepository,
-            EspacoAcademicoValidation espacoAcademicoValidation, WebClient softwareWebClient) {
+            EspacoAcademicoValidation espacoAcademicoValidation) {
 
         this.espacoAcademicoRepository = espacoAcademicoRepository;
         this.espacoAcademicoValidation = espacoAcademicoValidation;
-        this.softwareWebClient = softwareWebClient;
     }
 
     public EspacoAcademico create(EspacoAcademicoDTO dto) {
+        espacoAcademicoValidation.existsSoftware(dto);
         return espacoAcademicoRepository.save(new EspacoAcademico(dto));
     }
 
@@ -75,16 +74,6 @@ public class EspacoAcademicoService {
                 espacosInativos.add(espacoInativo);
         }
         return espacosInativos;
-    }
-
-    // pega somente pelo id sem precisar do SoftwareService
-    public EspacoAcademico addSoftwareId(Long idEspaco, Long idSoftware) {
-        EspacoAcademico espaco = findById(idEspaco);
-
-        if (!espaco.getSoftwareIds().contains(idSoftware)) {
-            espaco.getSoftwareIds().add(idSoftware);
-        }
-        return espacoAcademicoRepository.save(espaco);
     }
 
 }
