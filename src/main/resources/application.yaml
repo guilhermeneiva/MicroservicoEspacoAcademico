@@ -2,7 +2,6 @@ server:
   port: 8088
 
 spring:
-
   cloud:
     config:
       import-check:
@@ -12,11 +11,10 @@ spring:
     name: espacoFisico-ms
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_espacoFisico-ms
+    url: jdbc:postgresql://localhost:5435/db_espacoFisico-ms
     username: postgres
-    password: postgres
+    password: "@Lagosta123"
     driver-class-name: org.postgresql.Driver
-
 
   jpa:
     hibernate:
@@ -26,12 +24,11 @@ spring:
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
-
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
-    register-with-eureka: false #mudar para true quando for usar o eureka
-    fetch-registry: false #mudar para true quando for usar o eureka
+    register-with-eureka: true
+    fetch-registry: true
   instance:
     prefer-ip-address: true

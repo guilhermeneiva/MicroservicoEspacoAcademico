@@ -15,12 +15,12 @@ import java.util.NoSuchElementException;
 @Service
 public class EspacoAcademicoService {
 
-    EspacoAcademicoRepository espacoAcademicoRepository;
-    EspacoAcademicoValidation espacoAcademicoValidation;
-    WebClient softwareWebClient;
+    private EspacoAcademicoRepository espacoAcademicoRepository;
+    private EspacoAcademicoValidation espacoAcademicoValidation;
+    private WebClient softwareWebClient;
 
     public EspacoAcademicoService(EspacoAcademicoRepository espacoAcademicoRepository,
-                                  EspacoAcademicoValidation espacoAcademicoValidation, WebClient softwareWebClient) {
+            EspacoAcademicoValidation espacoAcademicoValidation, WebClient softwareWebClient) {
 
         this.espacoAcademicoRepository = espacoAcademicoRepository;
         this.espacoAcademicoValidation = espacoAcademicoValidation;
@@ -68,7 +68,6 @@ public class EspacoAcademicoService {
         return espacosAtivos;
     }
 
-
     public List<EspacoAcademico> findInativo() {
         List<EspacoAcademico> espacosInativos = new ArrayList<EspacoAcademico>();
         for (EspacoAcademico espacoInativo : findAll()) {
@@ -78,7 +77,7 @@ public class EspacoAcademicoService {
         return espacosInativos;
     }
 
-    //pega somente pelo id sem precisar do SoftwareService
+    // pega somente pelo id sem precisar do SoftwareService
     public EspacoAcademico addSoftwareId(Long idEspaco, Long idSoftware) {
         EspacoAcademico espaco = findById(idEspaco);
 
