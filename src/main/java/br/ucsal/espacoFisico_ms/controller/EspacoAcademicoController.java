@@ -38,7 +38,7 @@ public class EspacoAcademicoController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<EspacoAcademico> findById(@PathVariable Long id) {
         return ResponseEntity.ok(espacoAcademicoService.findById(id));
     }
